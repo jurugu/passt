@@ -1,0 +1,147 @@
+#+TAGS: LINUX(l) Moodle(m) TOOLS(t) WINDOOF(w) NW(n) DEV(d) EMACS(e) GEDANKEN(g) IDEE(i) SONSTIGE(s) FAMILIE(f) ORG(o) PROJ(p)
+* Rezept für IT, Tools und Technik    
+** Taxonomie: Welche Tags und Workflows benutze ich?
+   -Für Notizen:  Arbeit: Nach Fächern, nach Klassen, nach allgemeiner Administration 
+                   Privat  nach den o.g. Kategorien
+    Die Aufgaben sollten so beschrieben werden dass die unmittelbare nächste Aktion erkennbar wird.
+    z.B.: Address, ask, avoid, buy, change, clarify, collect, commend confront, consider, create, decide, defer, develop, discard, do again, download, enter, file, follow up, hire, improve, increase, inform, inquire, maintain, measure, monitor, order, paint, phone, prioritize, purchase, question, reduce, remember, repair, reply, report, research, resolve, review, schedule, sell, send, service, specify, start, stop, suggest, tidy, train, update, upgrade, write. 
+
+* Alle Notizen
+** Selbstorganisation: 
+*** Emacs/Org-Mode 
+    [[file+sys:/home/che/Dokumente/arbeit/org/org_mode_Tastenkombos_Spacemacs_V1.pdf][Spacemacs_Tastenkombinationen]]
+**** Ranger-Mode:
+**** Aufgaben anlegen, refilen und selektieren                          :ORG:
+   + Mit Org-Capture. Das startet man mit C-c c und wählt ein Template aus.
+     In Org-Capture kann man C-c C-q ein Tag vergeben und mit SHIFT Pfeil Rechts oder mit C-c C-t
+     einen Status festlegen. Bei dringenden Aufgaben kann man das Tag FLAGGED mit vergeben, was man nachher in der
+     Agenda-View schnell auflisten kann. Flagged sollte so etwas heißen wie: Heute zu erledigen, aktuell, dringend
+   + Termine kann man überall in ORG-Einträgen eintragen mit C-c . und C-c !  '.' bedeutet aktiver Termin, '!' bedeutet
+     inaktiver Termin. Genaueres [[http://members.optusnet.com.au/~charles57/GTD/org_dates/][hier]]
+   + In die Agenda-View kommt man mit C-c a, dort wählt man mit a die Auflistung aller Aufgaben mit Deadline, 
+     mit ? die Auflistung aller Flagged-Aufgaben oder mit t die Auflistung aller Aufgaben, die man dann z.b. 
+     mit 2 r nach dem Status 2 filtern kann. 
+     Mit / kann man die Aufgaben auch nach Flags filtern.Mit // nimmt man den Filter wieder raus.
+   + Refiling wird mit C-c C-w organisiert. Man kann eine Liste der Refile-Targets angeben, mit denen man die Aufgabe  
+     oder den Notizeintrag irgendwohin verschieben kann. Weitere Infos unter [[http://members.optusnet.com.au/~charles57/GTD/gtd_workflow.html#sec-13][Refile_Howto]]
+  
+**** Links anlegen:                                           :LINK:TOOLS:BS:
+   + Ein beliebiger Link laesst sich mit C-c l in Emacs oder einfach mit Maus-Copy speichern.
+     Falls das nicht klappt muss dieser Link mit (global-set-key (kbd "C-c l") 'org-store-link) im init-File aktiviert   werden.
+   + Der Link kann dann überall mit C-C C-l eingefügt werden. Er hat die Form: [[ link][Bezeichnung].
+     für link kann http: oder file: stehen, damit kann man auch beliebige Anhänge speichern.
+   + Mit file+sys: öffnet man das Systemspezifische Bedienprogramm für die Dateiendung
+   + Mit C-c C-o kann man dann dem Link folgen, wenn der Cursor irgendwo auf einer Zeile mit dem Link steht. Alternativ 
+     kann man auch einfach mit RET folgen, wenn man die Option (setq org-return-follows-link 1) eingestellt hat.
+   + Wenn die über einen Link geladene Datei zu breit ist kann sie mit M-x visual-line-mode umgebrochen werden.
+
+**** Ausdrucken der aktuellen Terminliste:
+     - TimeLine erzeugen mit C-C a L
+     - Schreiben als pdf mit C-X C-W
+**** Liste mit oft gebrauchten Pfaden anlegen (verlinkt in ORG-Datei kann.	
+
+     On the org-mode side, you can insert a link with C-c C-l. At the first prompt, enter file: and press enter, you will get a prompt with auto-completion to select the file you want to link to. If you're not too unfamiliar with emacs completion, that's probably the easiest way, along with org-store-link.
+
+     You could find emacs Bookmarks of interest. Once these are set (that's straightforward), you could, for instance, open these files in emacs with them, and use org-mode's org-store-link and org-insert-link to easily insert org-links to them.
+
+     You can launch whatever command requires a path (say, find-file), use emacs completion to enter the whole path without pain, not press RET and get the path from the minibuffer, with whichever cut/copy command suits you (C-w will do) (just cancel the find-file with C-g).
+
+     Now you have the path in the emacs kill ring, which you can paste as you like.
+
+     At last, for links you really insert often, you could create¹ a few bindings to insert them, like :
+
+     (global-set-key [f6] (lambda () (interactive)
+                     (insert "/very/long/path/you/don't/want/to/navigate/to/"))
+
+     With which f6 will insert the path you hard-coded there.
+
+ ¹ If you want to be fancy, you can go for a prefix key and a menu for all your links, but I guess that's not the kind of amount of time/lisp-coding you want to spare for it.
+ shareimprove this answer
+	
+ answered Nov 23 '12 at 19:26
+ Nikana Reklawyks
+ 396318
+	
+   	 
+	
+ thanks a lot for your explanation! Is there a way to open windows file system shortcuts from within Emacs? I can navigate to the folder where I have stored all my important links, but Emacs does not recognize the Windows shortcut files as hyperlinks, but the directory seems to be empty – MostlyHarmless Nov 26 '12 at 10:18
+ 1 	 
+	
+ I have no idea, sorry. I'm suggesting to recreate the shortcuts within emacs, essentially. With bookmarks, it would be quite easy : from windows, open all these important files in many emacs windows, and for each, bookmark (C-x r m if you don't rebind it) and close it, and voilà, you have all your bookmarks in emacs. – Nikana Reklawyks Nov 26 '12 at 12:24
+** Systemadministration
+*** Wie verändert man die Größe einer LVM-Partition (LVMROOT)
+    1) Mit PM-Stick booten
+    2) cryptsetup luksOpen /dev/sda3 mroot
+    3) vgscan --mknodes
+    4) vgchange -ay
+    5) lvdisplay
+    6) lvresize -L +4G /dev/mapper/ubuntu-vg/root
+    7) e2fsck -f /dev/mapper/ubuntu-vg-root
+    8) resize2fs -p /dev/mapper/ubuntu-vg-root
+    9) pvchange -x n /dev/mapper/crypt1
+    10) reboot
+*** Backup/Rsync                                                      :LINUX:
+**** Rsync sync-Verzeichnisse in ~/sync mit SAN-Stick 128GB und lösche alles auf Stick was in sync gelöscht wurde  (aus LuckyBackup)
+     rsync -h --progress --stats -r -t --modify-window=1 -l -D --update  --exclude=**/*Trash*/ --exclude=**/*trash*/  /home/che/sync/ /media/che/ED98-AF0D/sync/
+**** Wie organisiere ich verlinkte Notizen und hierarchische Notizen mit Tags? :ORG:
+       - Meine Todos speichere ich in: orga.org, die Todos verlinke ich optional mit Notizen.
+         Überschriften der 1. Ebene bei ToDos sind: Arbeit und Privat.
+       - Meine Notizen speichere ich in notizen.org als 3.Level-Notiz (Sind direkt die Notizthemen. 
+         An die Notizen kann ich mit C-c A Anhänge bzw. Links mit C-c C-l ankleben. 
+         (Falls zu einer Aufgabe nur ein Link gehört muss man keine Notiz dranhängen)
+       - Notizkategorien werden mit Tags für Fächer (Sachgebiete) Organisation (Familie, Org, Links) oder für
+         freie Notizen (Idee, Gedanken, Tagebuch) beschrieben.
+       - Da es viel Unterrichtsmaterial gibt und das wiederum aus vielen Dateien besteht ist es für die 
+         reine Unterrichtsvorbereitung sinnvoll, eigene Notizkategorien der Form Fach_Stufe_Vorb anzulegen, die zu
+         jeweils eigenen org-Dateien mit Anhängen, etc. führen können.
+       - Es gibt 2 Archivateien orga.org_archive und notizen.org_archive
+*** Installation von Moodle unter Opensuse [[file+sys:~/sync/pdf/linux/book.opensuse.reference_color_en.pdf::1][OpenSuse Admin Handbuch]] [[file+sys:~/sync/pdf/linux/book.opensuse.startup_color_en.pdf::1][OpenSuse Startup Handbuch]] :LINUX:Moodle:
+    ==== Installation ====
+
+    In Virtualbox mit 16GB VMDK-Image und 42.2 Netinstall
+
+    In Yast-Installation 
+    a) installation von zusätzlichen Medien wählen
+    b) das Education Repository als URL hinzufügen  http://download.opensuse.org/repositories/Education/openSUSE_Leap_42.2/
+
+
+    In der Sofware-Auswahl Details wählen und nach moodle suchen.
+    Moodle 3.1_de Paket wählen
+    Alle weiteren optionalen Pakete hinzufügen
+
+    Lampp-Server und Web-Development wählen
+    Unterstützung python3, haskell wählen
+
+    Installieren....
+
+
+    Dann
+    https://www.howtoforge.com/tutorial/how-to-install-lamp-stack-on-opensuse_42.1/
+
+    https://www.howtoforge.com/how-to-install-moodle-on-ubuntu-14.04#-install-apachemysqlphp
+
+    https://www.rosehosting.com/blog/install-moodle-3-0-on-a-linux-vps/
+
+    https://docs.moodle.org/32/en/Installing_Moodle?
+*** Installation einer Paketliste in OpenSuse                         :LINUX:
+    1) Zuerst eine Minimalinstallation mit dem Paketsystem
+    2) Dann erzeugen einer Paketlistel mit    rpm -q -a --qf '%{NAME} ' > pkglist.txt
+    3) Im Zielsystem Einfügen in Zypper:      zypper in `cat pkglist.txt`
+*** Moodle Wie Installiert man das OAUTH-Plugin                :Moodle:TOOLS:
+    1. In WebAdministration / Plugins installieren des Plugins unter file:///home/che/sync/oweb/data/20170429070851/index.html
+*** Git-Repository anlegen
+    Create a new repository on the command line
+**** git@github.com:jurugu/passt.git
+**** https://github.com/jurugu/passt.git
+     echo "# passt" >> README.md
+     git init  --> oder git clone https://github.com/jurugu/passt.git
+     git add README.md
+     git commit -m "first commit"
+     git remote add origin git@github.com:jurugu/passt.git
+     git push -u origin master
+* Schriftverkehr
+* Tagebuch
+** Tagebuch Juni 2016
+*** Mein erster echter Tagebucheintrag				   :GEDANKEN:
+** Tagebuch März 2017
+* Inbox
