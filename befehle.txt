@@ -13,7 +13,7 @@ Variante 1: Hole bestehendes Repository
        cd passt               
    33  git add ueber_diese_vm.txt 
    25  git config --global user.email "jurugu@ymail.com"
-   26  git config --global user.name "Christian Herwig"
+   26  git config --global user.name "Jeff"
    27  git commit -m 'jetzt mit Liste'
    35  git push
    78  git config -l
