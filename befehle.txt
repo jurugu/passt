@@ -1,0 +1,113 @@
+    1  vim ueber_diese_vm.txt
+    2  which git
+    3  sudo zypper in git
+    4  which git
+    5  mkdir austausch_git
+    6  cd austausch_git/
+    7  cd ..
+    8  ls
+    9  cp ueber_diese_vm.txt austausch_git/
+   10  cd austausch_git/
+   11  git remote add origin git@github.com:jurugu/passt.git
+   12  git init
+   13  git remote add origin git@github.com:jurugu/passt.git
+   14  git push -u origin master
+   15  git clone https://github.com/jurugu/passt.git
+   16  ls
+   17  cd passt/
+   18  ls
+   19  cd ..
+   20  mv ueber_diese_vm.txt passt/
+   21  cd passt
+   22  git push -u origin master
+   23  ls
+   24  git commit -m 'jetzt mit Liste'
+   25  git config --global user.email "jurugu@ymail.com"
+   26  git config --global user.name "Christian Herwig"
+   27  git commit -m 'jetzt mit Liste'
+   28  git pull
+   29  ls
+   30  ls -al
+   31  git pull --rebase
+   32  ls -al
+   33  git add ueber_diese_vm.txt 
+   34  git commit -m 'Jetzt aber'
+   35  git push
+   36  cd
+   37  ls
+   38  ls -al
+   39  cat .bash_history 
+   40  cat 
+   41  cat ueber_diese_vm.txt 
+   42  cat .bash_history
+   43  history 
+   44  cd austausch_git/passt/
+   45  history > leap_history.txt
+   46  git add leap_history.txt 
+   47  git push
+   48  ls
+   49  git add leap_history.txt 
+   50  git commit -m 'mit History'
+   51  git push
+   52  history > leap_history.txt
+   53  git push
+   54  git commit -m 'mit History'
+   55  git commit 
+   56  git push
+   57  cat leap_history.txt 
+   58  ls -al
+   59  rm leap_history.txt 
+   60  git commit -m 'weg damit'
+   61  ls
+   62  history > leap_history2.txt
+   63  git commit
+   64  igt add leap_history2.txt 
+   65  git add leap_history2.txt 
+   66  git commit
+   67  git commit -m 'neu'
+   68  git push
+   69  ls
+   70  git pull
+   71  ls
+   72  vim leap_history2.txt 
+   73  git commit -m 'nana'
+   74  git pull --rebase
+   75  git config --global user.email "jurugu@ymail.com"
+   76  git config --global user.name "jeff jurugu"
+   77  git push
+   78  git config -l
+   79  git status
+   80  git commit -a
+   81  git status
+   82  ls -al
+   83  git push
+   84  man git
+   85  sudo zypper in man
+   86  ls
+   87  git remote add origin git@github.com:jurugu/passt.git
+   88  cd ..
+   89  rmdir passt/
+   90  rm -Rf passt/
+   91  ls
+   92  mkdir passt
+   93  cd passt
+   94  git init
+   95  vim README.md
+   96  git commit -a
+   97  git add README.md 
+   98  git commit -a
+   99  git remote add origin git@github.com:jurugu/passt.git
+  100  history > befehle.txt
+  101  git commit -a
+  102  git add befehle.txt 
+  103  git add -a
+  104  git commit -a
+  105  git push -u origin master
+  106  git remote add origin git@github.com:jurugu/passt.git
+  107  git push -u origin master
+  108  cd ..
+  109  rm -Rf passt/
+  110  git clone https://github.com/jurugu/passt.git
+  111  cd passt/
+  112  ls
+  113  history > befehle.txt
